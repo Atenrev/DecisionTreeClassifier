@@ -63,7 +63,7 @@ def main():
     x_test = dataset_test.drop("income", axis="columns").to_numpy()
     y_test = dataset_test["income"].to_numpy()
 
-    model = DecisionTreeClassifier(dataset_train.columns[:-1], dataset_train.columns[-1])
+    model = DecisionTreeClassifier(dataset_train.columns[:-1], dataset_train.columns[-1], 'ID3') # Canviar per C45 
     model.fit(x_train, y_train)
     # write_to_file(model)
     print(f'\nPrediction for first test sample: {model.predict(x_test[0])}\n')
