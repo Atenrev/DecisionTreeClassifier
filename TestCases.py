@@ -19,7 +19,7 @@ class TestCases(unittest.TestCase):
                 ['No', 'No', 'Si', 'No'],
                 ['No', 'Si', 'Si', 'Si']]
         self.df = pd.DataFrame(data, columns=['Operacio major', 'Familia', 'Gran', 'Enviar a casa'])
-        self.tree = DecisionTreeClassifier(self.df.columns[:-1], self.df.columns[-1], Criterion.ID3)
+        self.tree = DecisionTreeClassifier(self.df.columns[:-1], [], Criterion.ID3)
         self.tree.set_attribute_values(self.df.to_numpy()[:, 0:3])
 
         data_nan = [['Si', 'No', 'No', 'No'],
@@ -46,7 +46,7 @@ class TestCases(unittest.TestCase):
                 ['b2', 'c2', 'No'],
                 ['b2', 'c2', 'No']]
         self.df2 = pd.DataFrame(data_2, columns=['A', 'B', 'Objectiu'])
-        self.tree2 = DecisionTreeClassifier(self.df2.columns[:-1], self.df2.columns[-1], Criterion.ID3)
+        self.tree2 = DecisionTreeClassifier(self.df2.columns[:-1], [], Criterion.ID3)
         self.tree2.set_attribute_values(self.df2.to_numpy()[:, 0:2])
 
     def test_entropy(self):

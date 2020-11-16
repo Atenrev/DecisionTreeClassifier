@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 from tree import SubTree, DecisionTreeClassifier
 from enum import Enum
-
+from preprocessing import write_to_file
 
 class Measure(Enum):
     ACC = 1
@@ -117,6 +117,7 @@ class Validation:
             y_train = np.hstack(tuple(y_folds[i] for i in range(k) if i != fold))
 
             model.fit(x_train, y_train)
+            #write_to_file(model)
             predictions = model.predict(x_val)
 
 
