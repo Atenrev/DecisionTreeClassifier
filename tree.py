@@ -16,6 +16,9 @@ class DecisionTreeClassifier:
     def set_attribute_values(self, data):
         self.attribute_values = [np.unique(data[:, i]) for i in range(data.shape[1])]
 
+    def set_labels(self, labels):
+        self.attribute_values = labels
+
     def fit(self, X, Y):
         self.model = SubTree(Y, X, self.attr_headers, self.criterion, self.attribute_values, self.continuous_attr_header)
 
